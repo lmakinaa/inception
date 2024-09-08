@@ -5,5 +5,5 @@ CREATE DATABASE IF NOT EXISTS wordpress;
 -- Create a new user and grant privileges
 -- % is a wildcard that allow the user to connect to the db from any host
 CREATE USER 'ismail'@'%' IDENTIFIED BY 'admin';
-GRANT ALL PRIVILEGES ON *.* TO 'ismail'@'%' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'ismail'@'%';
 FLUSH PRIVILEGES;
