@@ -48,3 +48,19 @@ services:
     networks:
       - 42-inception
     restart: always
+  ftp:
+    container_name: ftp
+    build: ./ftp
+    image: 42-ftp:v1
+    volumes:
+      - v-wordpress:/wp
+    networks:
+    - 42-inception
+    restart: always
+  redis:
+    container_name: redis
+    build: ./redis
+    image: 42-redis:v1
+    networks:
+      - 42-inception
+    restart: always
