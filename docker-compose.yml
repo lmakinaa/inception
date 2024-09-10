@@ -64,3 +64,12 @@ services:
     networks:
       - 42-inception
     restart: always
+  adminer:
+    container_name: adminer
+    build: ./adminer
+    image: 42-adminer:v1
+    networks:
+      - 42-inception
+    ports:
+      - 8000:8000
+    restart: always
