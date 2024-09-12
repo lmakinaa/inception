@@ -73,3 +73,21 @@ services:
     ports:
       - 8000:8000
     restart: always
+  prometheus:
+    container_name: prom
+    build: ./prometheus
+    image: 42-prometheus:v1
+    networks:
+      - 42-inception
+    ports:
+      - 9090:9090
+    restart: always
+  node-exporter:
+    container_name: node-exporter
+    build: ./node-exporter
+    image: 42-node-exporter:v1
+    networks_mode: host
+    pid: host
+    volumes:
+      - /:/host:ro,rslave
+    restart: always
