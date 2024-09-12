@@ -1,3 +1,4 @@
+
 volumes:
         v-wordpress:
                 name: wp
@@ -77,6 +78,8 @@ services:
     container_name: prom
     build: ./prometheus
     image: 42-prometheus:v1
+    extra_hosts:
+      - "host-machine:host-gateway"  
     networks:
       - 42-inception
     ports:
@@ -86,8 +89,10 @@ services:
     container_name: node-exporter
     build: ./node-exporter
     image: 42-node-exporter:v1
-    networks_mode: host
+    network_mode: host
     pid: host
+    depends_on:
+      - prometheus  
     volumes:
       - /:/host:ro,rslave
     restart: always
