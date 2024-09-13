@@ -39,10 +39,16 @@ services:
     container_name: ftp
     build: ./ftp
     image: ftp:v1
+    ports:
+      - 21:21
+      - 20:20
+      - 40000-50000:40000-50000
     volumes:
       - wordpress:/wp
     networks:
     - 42-inception
+    depends_on:
+      - wordpress
     restart: unless-stopped
 
   redis:
