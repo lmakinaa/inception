@@ -3,7 +3,7 @@
 echo "
 ALTER USER 'root'@'localhost' IDENTIFIED BY '$DB_ROOT_PASSWORD';
 
-CREATE DATABASE IF NOT EXISTS wordpress;
+CREATE DATABASE IF NOT EXISTS $DB_NAME;
 
 -- Create a new user and grant privileges
 -- % is a wildcard that allow the user to connect to the db from any host
