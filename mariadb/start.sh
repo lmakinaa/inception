@@ -9,4 +9,4 @@ CREATE DATABASE IF NOT EXISTS $DB_NAME;
 CREATE USER $DB_USER@'%' IDENTIFIED BY $DB_PASS;
 GRANT ALL PRIVILEGES ON *.* TO $DB_USER@'%';
 FLUSH PRIVILEGES;
-" > /etc/mysql/init.sql
+" > /etc/mysql/init.sql && mysqld_safe
