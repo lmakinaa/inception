@@ -7,7 +7,5 @@ RUN echo "listen = 9000" >> /etc/php/8.2/fpm/pool.d/www.conf
 COPY installwp.sh /root/installwp.sh
 COPY wp-config.php /root/wp-config.php
 
-WORKDIR /var/www/html
-
 CMD ["sh", "/root/installwp.sh"]
 
