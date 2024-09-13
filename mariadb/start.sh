@@ -11,4 +11,4 @@ GRANT ALL PRIVILEGES ON *.* TO $DB_USER@'%';
 FLUSH PRIVILEGES;
 " > /etc/mysql/init.sql;
 
-mysqld_safe
+mysqld
