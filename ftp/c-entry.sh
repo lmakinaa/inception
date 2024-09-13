@@ -2,6 +2,8 @@
 
 adduser --home /wp "test" --disabled-password && printf "admin\nadmin" | passwd "test";
 
+mkdir -p /var/run/vsftpd/empty;
+
 chown test:test /wp;
 
 echo "
