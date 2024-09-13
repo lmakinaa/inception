@@ -1,4 +1,4 @@
-ALTER USER 'root'@'localhost' IDENTIFIED BY $DB_ROOT_PASS;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Ofppt@123';
 
 CREATE DATABASE IF NOT EXISTS wordpress;
 
