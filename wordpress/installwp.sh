@@ -6,6 +6,8 @@ curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -
 chmod +x ./wp-cli.phar && \
 ./wp-cli.phar core download --path=/var/www/html --allow-root;
 
+cp /root/wp-config.php /var/www/html
+
 sed -i "s/<DB_NAME>/$DB_NAME/" /root/wp-config.php;
 sed -i "s/<DB_USER>/$DB_USER/" /root/wp-config.php;
 sed -i "s/<DB_PASS>/$DB_PASS/" /root/wp-config.php;
