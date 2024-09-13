@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mkdir -p /var/www/html && cd /var/www/html;
+
 echo "listen = 9000" >> /etc/php/8.2/fpm/pool.d/www.conf;
 rm -rf *;
 curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o ./wp-cli.phar && \
