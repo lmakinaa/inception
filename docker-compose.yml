@@ -8,7 +8,7 @@ services:
     depends_on:
       - wordpress
     volumes:
-     - v-wordpress:/var/www/html
+     - /home/ijaija/data/wp:/var/www/html
     networks:
       - 42-inception
     restart: unless-stopped
@@ -20,7 +20,7 @@ services:
     depends_on:
       - mariadb
     volumes:
-      - v-wordpress:/var/www/html
+      - /home/ijaija/data/wp:/var/www/html
     networks:
       - 42-inception
     restart: unless-stopped
@@ -30,7 +30,7 @@ services:
     build: ./mariadb
     image: mariadb:v1
     volumes:
-      - v-mariadb:/var/mariadb_vol
+      - /home/ijaija/data/db:/var/www/html
     networks:
       - 42-inception
     restart: unless-stopped
@@ -40,7 +40,7 @@ services:
     build: ./ftp
     image: ftp:v1
     volumes:
-      - v-wordpress:/wp
+      - /home/ijaija/data/wp:/wp
     networks:
     - 42-inception
     restart: unless-stopped
@@ -106,11 +106,3 @@ services:
 networks:
   42-inception:
     name: 42-inception
-
-volumes:
-  v-wordpress:
-    type: bind
-    source: /home/ijaija/data/wordpress
-  v-mariadb:
-    type: bind
-    source: /home/ijaija/data/mariadb
