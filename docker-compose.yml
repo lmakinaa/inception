@@ -23,8 +23,7 @@ services:
       - /home/ijaija/data/wp:/var/www/html
     networks:
       - 42-inception
-    env_file:
-      - .env
+    env_file: ./.env
     restart: unless-stopped
 
   mariadb:
@@ -35,8 +34,7 @@ services:
       - /home/ijaija/data/db:/var/mariadb_vol
     networks:
       - 42-inception
-    env_file:
-      - .env
+    env_file: ./.env
     restart: unless-stopped
 
   ftp:
