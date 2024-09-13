@@ -1,19 +1,18 @@
-
-volumes:
-        v-wordpress:
-                name: wp
-        v-mariadb:
-                name: db
-
 networks:
   42-inception:
     name: 42-inception
+
+volumes:
+  v-wordpress:
+    name: wp
+  v-mariadb:
+    name: db
 
 services:
   nginx:
     container_name: nginx
     build: ./nginx
-    image: 42-nginx:v1
+    image: nginx:v1
     ports:
      - 443:443
     depends_on:
@@ -22,89 +21,94 @@ services:
      - v-wordpress:/var/www/html
     networks:
       - 42-inception
-    #env_file:
-    #  - .env
-    restart: always
+    restart: unless-stopped
+
   wordpress:
     container_name: wordpress
     build: ./wordpress
-    image: 42-wordpress:v1
+    image: wordpress:v1
     depends_on:
       - mariadb
     volumes:
       - v-wordpress:/var/www/html
-    #env_file:
-    #  - .env
     networks:
       - 42-inception
-    restart: always
+    restart: unless-stopped
+
   mariadb:
     container_name: mariadb
     build: ./mariadb
-    image: 42-mariadb:v1
+    image: mariadb:v1
     volumes:
       - v-mariadb:/var/mariadb_vol
-    #env_file:
-    #  - .env
     networks:
       - 42-inception
-    restart: always
+    restart: unless-stopped
+
   ftp:
     container_name: ftp
     build: ./ftp
-    image: 42-ftp:v1
+    image: ftp:v1
     volumes:
       - v-wordpress:/wp
     networks:
     - 42-inception
-    restart: always
+    restart: unless-stopped
+
   redis:
     container_name: redis
     build: ./redis
-    image: 42-redis:v1
+    image: redis:v1
+    depends_on:
+      - wordpress
     networks:
       - 42-inception
-    restart: always
+    restart: unless-stopped
+  
   adminer:
     container_name: adminer
     build: ./adminer
-    image: 42-adminer:v1
+    image: adminer:v1
+    depends_on:
+      - mariadb
     networks:
       - 42-inception
     ports:
       - 8000:8000
-    restart: always
+    restart: unless-stopped
+
   prometheus:
     container_name: prom
     build: ./prometheus
-    image: 42-prometheus:v1
+    image: prometheus:v1
+    depends_on:
+      - node-exporter
     extra_hosts:
       - "host-machine:host-gateway"  
     networks:
       - 42-inception
-    ports:
-      - 9090:9090
-    restart: always
+    #ports:
+    #  - 9090:9090
+    restart: unless-stopped
+
   node-exporter:
     container_name: node-exporter
     build: ./node-exporter
-    image: 42-node-exporter:v1
+    image: node-exporter:v1
     network_mode: host
     pid: host
-    depends_on:
-      - prometheus  
     volumes:
       - /:/host:ro,rslave
-    restart: always
+    restart: unless-stopped
+
   grafana:
     container_name: grafana
     build: ./grafana
-    image: 42-grafana:v1
+    image: grafana:v1
+    depends_on:
+      - prometheus
     networks:
       - 42-inception
     ports:
       - 3000:3000
-    depends_on:
-      - node-exporter
-      - prometheus
     restart: unless-stopped
