@@ -20,6 +20,6 @@ sed -i "s/<DB_PASS>/$DB_PASS/" /var/www/html/wp-config.php;
 
 chown -R www-data /var/www/html/wp-content;
 
-wp plugin install redis-cache --activate --allow-root;
+./wp-cli.phar plugin install redis-cache --activate --allow-root;
 
 php-fpm8.2 -F
