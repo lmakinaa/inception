@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mkdir -p /var/www/html && cd /var/www/html;
+cd /var/www/html;
 
 echo "listen = 9000" >> /etc/php/8.2/fpm/pool.d/www.conf;
 rm -rf *;
