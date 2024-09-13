@@ -24,7 +24,7 @@ services:
     networks:
       - 42-inception
     env_file:
-      - .env
+      - ./.env
     restart: unless-stopped
 
   mariadb:
@@ -36,7 +36,7 @@ services:
     networks:
       - 42-inception
     env_file:
-      - .env
+      - ./.env
     restart: unless-stopped
 
   ftp:
