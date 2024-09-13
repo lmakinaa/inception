@@ -30,7 +30,7 @@ services:
     build: ./mariadb
     image: mariadb:v1
     volumes:
-      - /home/ijaija/data/db:/var/mariadb_vol
+      - /home/ijaija/data/db:/var/lib/mysql
     networks:
       - 42-inception
     restart: unless-stopped
@@ -106,3 +106,4 @@ services:
 networks:
   42-inception:
     name: 42-inception
+
