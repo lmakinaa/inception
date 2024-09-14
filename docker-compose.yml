@@ -43,10 +43,7 @@ services:
     container_name: ftp
     build: ./ftp
     image: ftp:v1
-    ports:
-      - 21:21
-      - 20:20
-      - 40000-40010:40000-40010
+    network_mode: host
     volumes:
       - wordpress:/wp
     networks:
