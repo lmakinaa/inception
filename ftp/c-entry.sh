@@ -1,10 +1,10 @@
 #!/bin/sh
 
-adduser --home /wp "test" --disabled-password && printf "admin\nadmin" | passwd "test";
+adduser --home /wp "$FTP_USER" --disabled-password && printf "$FTP_PASS\n$FTP_PASS" | passwd "$FTP_USER";
 
 mkdir -p /var/run/vsftpd/empty;
 
-chown test:test /wp;
+chown $FTP_USER:$FTP_USER /wp;
 
 echo "
 write_enable=YES
@@ -16,6 +16,6 @@ pam_service_name=ftp
 allow_writeable_chroot=YES
 " >> /etc/vsftpd.conf;
 
-echo "test" > /etc/ftpusers;
+echo "$FTP_USER" > /etc/ftpusers;
 
 vsftpd
