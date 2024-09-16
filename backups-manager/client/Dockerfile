@@ -6,6 +6,8 @@ COPY files /root/files
 
 WORKDIR /root/files
 
-RUN npm install
+RUN npm install && npm install -g serve && npm run build
 
-CMD ["npm", "start"]
+EXPOSE 3300:3300
+
+CMD ["serve", "-s", "-p", "3300", "build"]
