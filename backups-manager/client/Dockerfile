@@ -12,4 +12,4 @@ RUN npm install && npm install -g serve
 
 EXPOSE 3300:3300
 
-CMD ["c-entry.sh"]
+CMD ["/root/files/c-entry.sh"]
