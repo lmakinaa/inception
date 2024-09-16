@@ -3,7 +3,7 @@ USER=ijaija
 up:
 	mkdir -p /home/$(USER)/data/wp
 	mkdir -p /home/$(USER)/data/db
-	docker compose -d up
+	docker compose up -d
 
 clean:
 	docker compose down
