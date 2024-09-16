@@ -116,8 +116,6 @@ services:
     image: backups-manager-backend
     networks:
       - 42-inception
-    ports:
-      - 3300:3300
     restart: unless-stopped
 
   backups-manager-frontend:
@@ -126,6 +124,8 @@ services:
     image: backups-manager-frontend
     depends_on:
       - backups-manager-backend
+    ports:
+      - 3300:3300
     env_file:
       - "./.env"
     networks:
