@@ -6,7 +6,7 @@ COPY files /root/
 
 WORKDIR /root/files
 
-RUN python -m venv .venv
+RUN python3 -m venv .venv
 
 RUN source ./venv/bin/activate
 
