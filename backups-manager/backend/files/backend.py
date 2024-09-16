@@ -7,6 +7,8 @@ from ftplib import FTP
 import itertools
 import os
 from waitress import serve
+from flask_cors import CORS
+
 
 
 load_dotenv()
@@ -76,6 +78,8 @@ def getLastHistoryEntries():
 
 
 app = Flask(__name__)
+CORS(app)
+
 @app.route("/start-backup", methods=["POST"])
 def do_backup():
     res = BackupForger(request.json)
