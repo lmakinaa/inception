@@ -110,9 +110,31 @@ services:
       - 3000:3000
     restart: unless-stopped
 
+  backups-manager-backend:
+    container_name: backups-manager-backend
+    build: ./backups-manager/backend
+    image: backups-manager-backend
+    networks:
+      - 42-inception
+    ports:
+      - 3300:3300
+    restart: unless-stopped
+
+  backups-manager-frontend:
+    container_name: backups-manager-frontend
+    build: ./backups-manager/client
+    image: backups-manager-frontend
+    depends_on:
+      - backups-manager-backend
+    networks:
+      - 42-inception
+    restart: unless-stopped
+
+
 networks:
   42-inception:
     name: 42-inception
+
 
 #volumes:
 #  wordpress:
