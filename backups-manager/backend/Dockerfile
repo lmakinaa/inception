@@ -12,4 +12,4 @@ RUN python3 -m venv .venv && . ./.venv/bin/activate && ./.venv/bin/pip3 install 
 
 EXPOSE 5000:5000
 
-CMD ["./c-entry.sh"]
+CMD ["/root/files/c-entry.sh"]
