@@ -126,6 +126,8 @@ services:
     image: backups-manager-frontend
     depends_on:
       - backups-manager-backend
+    env_file:
+      - "./.env"
     networks:
       - 42-inception
     restart: unless-stopped
