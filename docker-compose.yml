@@ -118,6 +118,8 @@ services:
       - /home/ijaija/data/:/volumes
     env_file:
       - "./.env"
+    ports:
+      - 5000:5000
     networks:
       - 42-inception
     restart: unless-stopped
