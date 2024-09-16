@@ -4,7 +4,9 @@ RUN apt update && apt install -y python3-pip python3.11-venv
 
 COPY files /root/
 
-WORKDIR /root/files
+WORKDIR /root/files/
+
+RUN ls
 
 RUN python3 -m venv .venv
 
