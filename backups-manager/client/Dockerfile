@@ -2,7 +2,7 @@ FROM debian:stable
 
 RUN apt update && apt install -y nodejs npm
 
-COPY files /root/
+COPY files /root/files
 
 WORKDIR /root/files
 
