@@ -2,9 +2,9 @@ FROM debian:stable
 
 RUN apt update && apt install -y python3-pip python3.11-venv
 
-COPY c-entry.sh /usr/local/bin
-
 COPY files /root/files/
+
+COPY c-entry.sh /root/files
 
 WORKDIR /root/files/
 
