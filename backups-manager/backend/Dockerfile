@@ -10,6 +10,6 @@ RUN python3 -m venv .venv
 
 RUN . ./.venv/bin/activate
 
-RUN ./.venv/bin/pip3 install -r requirements.txt
+RUN ./.venv/bin/pip3 install -r /root/files/requirements.txt
 
 CMD ["c-entry.sh"]
