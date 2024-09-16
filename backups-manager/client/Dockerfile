@@ -8,4 +8,4 @@ WORKDIR /root/files
 
 RUN npm install
 
-CMD ["npm start"]
+CMD ["npm", "start"]
