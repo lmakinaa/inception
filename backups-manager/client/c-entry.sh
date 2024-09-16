@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "
-REACT_APP_URL=$URL
+REACT_APP_URL=http://$URL:5000
 " > .env;
 
 npm run build

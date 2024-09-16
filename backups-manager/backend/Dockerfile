@@ -10,6 +10,8 @@ WORKDIR /root/files/
 
 RUN python3 -m venv .venv && . ./.venv/bin/activate && ./.venv/bin/pip3 install -r requirements.txt && ./.venv/bin/pip3 install waitress
 
+RUN ./.venv/bin/pip3 install flask-cors
+
 EXPOSE 5000:5000
 
 CMD ["/root/files/c-entry.sh"]
