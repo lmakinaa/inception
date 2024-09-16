@@ -1,6 +1,6 @@
 FROM debian:stable
 
-RUN apt update && apt install -y python3-pip
+RUN apt update && apt install -y python3-pip python3.11-venv
 
 COPY files /root/
 
