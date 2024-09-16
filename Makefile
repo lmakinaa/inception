@@ -9,7 +9,7 @@ down:
 	docker compose down
 
 clean:
-	docker compose down
+	docker compose down --rmi 'all'
 	rm -rf /home/$(USER)/data
 
 re: clean up
