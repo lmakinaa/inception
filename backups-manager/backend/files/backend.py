@@ -6,6 +6,7 @@ import dropbox
 from ftplib import FTP
 import itertools
 import os
+from waitress import serve
 
 
 load_dotenv()
@@ -64,9 +65,12 @@ class BackupForger:
 
 def getLastHistoryEntries():
     res = ""
-    with open(os.getenv('BACKUPS_HISTORY_PATH'), 'ra') as f:
-        for line in itertools.islice(f, 10):
-            res += line.strip() + "\n"
+    try:
+        with open(os.getenv('BACKUPS_HISTORY_PATH'), 'ra') as f:
+            for line in itertools.islice(f, 10):
+                res += line.strip() + "\n"
+    except:
+        return res
     return res
 
 
