@@ -57,14 +57,14 @@ class BackupForger:
     def addToHistory(self):
         entry = f'Backup at {self.time} sent to {self.backupDest} has completed with status: {self.backupStatus}.\n'
         print(entry)
-        with open(os.getenv('HISTORY_PATH'), 'a') as f:
+        with open(os.getenv('BACKUPS_HISTORY_PATH'), 'a') as f:
             f.write(entry)
     
 
 
 def getLastHistoryEntries():
     res = ""
-    with open(os.getenv('HISTORY_PATH'), 'r') as f:
+    with open(os.getenv('BACKUPS_HISTORY_PATH'), 'r') as f:
         for line in itertools.islice(f, 10):
             res += line.strip() + "\n"
     return res
