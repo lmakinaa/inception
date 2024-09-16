@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     setLogLoad(true)
-    fetch("/history")
+    fetch(`${process.env.REACT_APP_API_URL}/history`)
     .then(response => response.text())
     .then(data => {setHistory(data); setLogLoad(false)})
     .catch(error => {console.log("Error: ", error); setLogLoad(false)})
@@ -62,7 +62,7 @@ function App() {
     setTimeout(() => setMessage(`Backup started...\nContent selected is: ${backupContent}\nDestination choosen to send backup to is: ${backupDest}\n`), 2000);
     setTimeout(() => setMessage(`Backup started...\nContent selected is: ${backupContent}\nDestination choosen to send backup to is: ${backupDest}\nBackup scheduled time is: now\n`), 3000);
 
-    await fetch("/start-backup", {
+    await fetch(`${process.env.REACT_APP_API_URL}/start-backup`, {
       method: "POST",
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
