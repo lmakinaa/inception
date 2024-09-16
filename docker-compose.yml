@@ -116,6 +116,8 @@ services:
     image: backups-manager-backend
     volumes:
       - /home/ijaija/data/:/volumes
+    env_file:
+      - "./.env"
     networks:
       - 42-inception
     restart: unless-stopped
