@@ -1,8 +1,8 @@
-FROM debian:stable
+FROM debian:buster
 
 RUN apt update && apt install -y vsftpd
 
-COPY c-entry.sh /usr/local/bin/c-entry.sh
+COPY tools/c-entry.sh /usr/local/bin/c-entry.sh
 
 EXPOSE 21
 EXPOSE 20

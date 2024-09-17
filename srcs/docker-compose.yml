@@ -1,7 +1,7 @@
 services:
   nginx:
     container_name: nginx
-    build: ./nginx
+    build: ./requirements/nginx
     image: nginx:v1
     ports:
      - 443:443
@@ -15,7 +15,7 @@ services:
 
   wordpress:
     container_name: wordpress
-    build: ./wordpress
+    build: ./requirements/wordpress
     image: wordpress:v1
     depends_on:
       - mariadb
@@ -29,7 +29,7 @@ services:
 
   mariadb:
     container_name: mariadb
-    build: ./mariadb
+    build: ./requirements/mariadb
     image: mariadb:v1
     volumes:
       - /home/ijaija/data/db:/var/lib/mysql
@@ -41,7 +41,7 @@ services:
 
   ftp:
     container_name: ftp
-    build: ./ftp
+    build: ./requirements/bonus/ftp
     image: ftp:v1
     network_mode: host
     volumes:
@@ -54,7 +54,7 @@ services:
 
   redis:
     container_name: redis
-    build: ./redis
+    build: ./requirements/bonus/redis
     image: redis:v1
     depends_on:
       - wordpress
@@ -64,7 +64,7 @@ services:
   
   adminer:
     container_name: adminer
-    build: ./adminer
+    build: ./requirements/bonus/adminer
     image: adminer:v1
     depends_on:
       - mariadb
@@ -76,7 +76,7 @@ services:
 
   prometheus:
     container_name: prom
-    build: ./prometheus
+    build: ./requirements/bonus/prometheus
     image: prometheus:v1
     depends_on:
       - node-exporter
@@ -90,7 +90,7 @@ services:
 
   node-exporter:
     container_name: node-exporter
-    build: ./node-exporter
+    build: ./requirements/bonus/node-exporter
     image: node-exporter:v1
     network_mode: host
     pid: host
@@ -100,7 +100,7 @@ services:
 
   grafana:
     container_name: grafana
-    build: ./grafana
+    build: ./requirements/bonus/grafana
     image: grafana:v1
     depends_on:
       - prometheus
@@ -112,7 +112,7 @@ services:
 
   backups-manager-backend:
     container_name: backups-manager-backend
-    build: ./backups-manager/backend
+    build: ./requirements/bonus/backups-manager/backend
     image: backups-manager-backend:v1
     volumes:
       - /home/ijaija/data/:/volumes
@@ -126,7 +126,7 @@ services:
 
   backups-manager-frontend:
     container_name: backups-manager-frontend
-    build: ./backups-manager/client
+    build: ./requirements/bonus/backups-manager/client
     image: backups-manager-frontend:v1
     depends_on:
       - backups-manager-backend

@@ -1,0 +1,10 @@
+- remove network_mode: host
+
+- tools directory
+
+- directories permissions
+
+- Evaluate the bonus part if, and only if, the mandatory part has been entirely and perfectly done, and the error management handles unexpected or bad usage.
+
+-  You have to reboot the virtual machine. Once it has restarted, launch docker compose again. Then, verify that everything is functional, and that both WordPress and MariaDB are configured.
+

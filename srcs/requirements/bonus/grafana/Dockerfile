@@ -1,4 +1,4 @@
-FROM debian:stable
+FROM debian:buster
 
 RUN apt update && apt install -y wget adduser libfontconfig1 musl vim bash
 
@@ -6,11 +6,11 @@ RUN wget https://dl.grafana.com/enterprise/release/grafana-enterprise-11.2.0.lin
 
 WORKDIR /grafana-v11.2.0
 
-COPY prometheus-datasource.yml /grafana-v11.2.0/conf/provisioning/datasources/prometheus.yml
+COPY conf/prometheus-datasource.yml /grafana-v11.2.0/conf/provisioning/datasources/prometheus.yml
 
 RUN cd /grafana-v11.2.0/conf/provisioning && mkdir templates && wget https://grafana.com/api/dashboards/1860/revisions/37/download -O templates/prometheus.json
 
-COPY prometheus-dashboard.yml /grafana-v11.2.0/conf/provisioning/dashboards/prometheus.yml
+COPY conf/prometheus-dashboard.yml /grafana-v11.2.0/conf/provisioning/dashboards/prometheus.yml
 
 EXPOSE 3000:3000
 
