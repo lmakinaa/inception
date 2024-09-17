@@ -22,4 +22,4 @@ chown -R www-data /var/www/html/wp-content;
 
 ./wp-cli.phar plugin install redis-cache --activate --allow-root;
 
-php-fpm8.2 -F
+php-fpm7.4 -F
