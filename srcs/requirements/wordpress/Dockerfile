@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 RUN apt update && apt install -y php-fpm curl sendmail php-mysqli php-redis
 
