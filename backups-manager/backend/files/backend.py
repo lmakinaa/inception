@@ -31,7 +31,7 @@ class BackupForger:
             self.volumePath += self.backupContent
     
     def compressVolume(self):
-        self.outputFile = datetime.now().strftime("%d-%m-%y_%H-%M_%S-$f")[:-3] + self.backupContent + ".tar.gz"
+        self.outputFile = self.backupContent + "|" datetime.now().strftime("%d-%m-%y_%H-%M_%S-$f")[:-3] + ".tar.gz"
         outputPath = "/tmp/" + self.outputFile
         with tarfile.open(outputPath, 'w:gz') as f:
             f.add(self.volumePath, arcname='')
