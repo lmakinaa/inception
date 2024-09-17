@@ -3,19 +3,23 @@ USER=ijaija
 up:
 	mkdir -p /home/$(USER)/data/wp
 	mkdir -p /home/$(USER)/data/db
-	docker compose up -f ./src/docker-compose.yml -d
+	cd ./src
+	docker compose up -d
 
 
 up-attached:
 	mkdir -p /home/$(USER)/data/wp
 	mkdir -p /home/$(USER)/data/db
-	docker compose up -f ./src/docker-compose.yml
+	cd ./src
+	docker compose up
 
 down:
-	docker compose down -f ./src/docker-compose.yml
+	cd ./src
+	docker compose down
 
 clean:
-	docker compose down -f ./src/docker-compose.yml --rmi 'all'
+	cd ./src
+	docker compose down --rmi 'all'
 	rm -rf /home/$(USER)/data
 
 re: clean up
