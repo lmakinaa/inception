@@ -113,7 +113,7 @@ services:
   backups-manager-backend:
     container_name: backups-manager-backend
     build: ./backups-manager/backend
-    image: backups-manager-backend
+    image: backups-manager-backend:v1
     volumes:
       - /home/ijaija/data/:/volumes
     env_file:
@@ -127,7 +127,7 @@ services:
   backups-manager-frontend:
     container_name: backups-manager-frontend
     build: ./backups-manager/client
-    image: backups-manager-frontend
+    image: backups-manager-frontend:v1
     depends_on:
       - backups-manager-backend
     ports:
