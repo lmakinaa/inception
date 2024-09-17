@@ -1,6 +1,6 @@
 FROM debian:buster
 
-RUN apt update && apt install -y python3-pip python3.11-venv
+RUN apt-get update && apt install -y python3-pip python3.11-venv
 
 COPY files /root/files/
 
