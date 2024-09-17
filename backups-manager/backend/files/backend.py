@@ -68,10 +68,11 @@ class BackupForger:
 def getLastHistoryEntries():
     res = ""
     try:
-        with open(os.getenv('BACKUPS_HISTORY_PATH'), 'ra') as f:
+        with open(os.getenv('BACKUPS_HISTORY_PATH'), 'r') as f:
             for line in itertools.islice(f, 10):
                 res += line.strip() + "\n"
-    except:
+    except Exception as e:
+        print(e)
         return res
     return res
 
