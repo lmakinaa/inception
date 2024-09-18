@@ -43,7 +43,8 @@ services:
     container_name: ftp
     build: ./requirements/bonus/ftp
     image: ftp:v1
-    network_mode: host
+    ports:
+      40000-40100:40000-40100
     volumes:
       - /home/ijaija/data/wp:/wp
     env_file:
@@ -81,7 +82,7 @@ services:
     depends_on:
       - node-exporter
     extra_hosts:
-      - "host-machine:host-gateway"  
+      - "host-machine:host-gateway"
     networks:
       - 42-inception
     #ports:
