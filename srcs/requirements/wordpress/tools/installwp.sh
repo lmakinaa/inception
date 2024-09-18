@@ -7,6 +7,7 @@ if [ -f "./wp-cli.phar" ]; then
     exit 0
 fi
 
+rm -rf *;
 
 curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o ./wp-cli.phar && \
 chmod +x ./wp-cli.phar && \
@@ -28,5 +29,6 @@ sed -i "s/<DB_PASS>/$DB_PASS/" /var/www/html/wp-config.php;
 
 
 chown -R www-data:www-data /var/www/html/wp-content;
+
 
 php-fpm7.4 -F
