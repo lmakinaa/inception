@@ -82,8 +82,6 @@ services:
     image: prometheus:v1
     depends_on:
       - node-exporter
-    extra_hosts:
-      - "host-machine:host-gateway"
     networks:
       - 42-inception
     #ports:
