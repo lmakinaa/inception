@@ -94,8 +94,8 @@ services:
     image: node-exporter:v1
     networks:
       - 42-inception
-    ports:
-      - 9100:9100
+    #ports:
+    #  - 9100:9100
     pid: host
     volumes:
       - /:/host:ro,rslave
