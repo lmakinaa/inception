@@ -144,23 +144,19 @@ services:
     restart: unless-stopped
 
 
+volumes:
+  wordpress:
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/ijaija/data/wp
+  mariadb:
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/ijaija/data/db
+
 networks:
   42-inception:
     name: 42-inception
 
-
-volumes:
-  wordpress:
-    name: wordpress
-    driver: local
-    driver_opts:
-      device: /home/ijaija/data/wp
-      o: bind
-      type: none
-  mariadb:
-    name: mariadb
-    driver: local
-    driver_opts:
-      device: /home/ijaija/data/db
-      o: bind
-      type: none
