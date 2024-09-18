@@ -76,42 +76,42 @@ services:
       - 8000:8000
     restart: unless-stopped
 
-  prometheus:
-    container_name: prom
-    build: ./requirements/bonus/prometheus
-    image: prometheus:v1
-    depends_on:
-      - node-exporter
-    networks:
-      - 42-inception
-    #ports:
-    #  - 9090:9090
-    restart: unless-stopped
+  #prometheus:
+  #  container_name: prom
+  #  build: ./requirements/bonus/prometheus
+  #  image: prometheus:v1
+  #  depends_on:
+  #    - node-exporter
+  #  networks:
+  #    - 42-inception
+  #  #ports:
+  #  #  - 9090:9090
+  #  restart: unless-stopped
 
-  node-exporter:
-    container_name: node-exporter
-    build: ./requirements/bonus/node-exporter
-    image: node-exporter:v1
-    networks:
-      - 42-inception
-    #ports:
-    #  - 9100:9100
-    #pid: host
-    #volumes:
-    #  - /:/host:ro,rslave
-    restart: unless-stopped
+  #node-exporter:
+  #  container_name: node-exporter
+  #  build: ./requirements/bonus/node-exporter
+  #  image: node-exporter:v1
+  #  networks:
+  #    - 42-inception
+  #  #ports:
+  #  #  - 9100:9100
+  #  #pid: host
+  #  #volumes:
+  #  #  - /:/host:ro,rslave
+  #  restart: unless-stopped
 
-  grafana:
-    container_name: grafana
-    build: ./requirements/bonus/grafana
-    image: grafana:v1
-    depends_on:
-      - prometheus
-    networks:
-      - 42-inception
-    ports:
-      - 3000:3000
-    restart: unless-stopped
+  #grafana:
+  #  container_name: grafana
+  #  build: ./requirements/bonus/grafana
+  #  image: grafana:v1
+  #  depends_on:
+  #    - prometheus
+  #  networks:
+  #    - 42-inception
+  #  ports:
+  #    - 3000:3000
+  #  restart: unless-stopped
 
   backups-manager-backend:
     container_name: backups-manager-backend
