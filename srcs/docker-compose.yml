@@ -96,9 +96,9 @@ services:
       - 42-inception
     #ports:
     #  - 9100:9100
-    pid: host
-    volumes:
-      - /:/host:ro,rslave
+    #pid: host
+    #volumes:
+    #  - /:/host:ro,rslave
     restart: unless-stopped
 
   grafana:
