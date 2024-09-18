@@ -1,7 +1,13 @@
 #!/bin/sh
 
 cd /var/www/html;
-rm -rf *;
+
+if [ -f "./wp-cli.phar" ]; then
+    php-fpm7.4 -F
+    exit 0
+fi
+
+
 curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o ./wp-cli.phar && \
 chmod +x ./wp-cli.phar && \
 ./wp-cli.phar core download --path=/var/www/html --allow-root;
@@ -22,7 +28,5 @@ sed -i "s/<DB_PASS>/$DB_PASS/" /var/www/html/wp-config.php;
 
 
 chown -R www-data:www-data /var/www/html/wp-content;
-
-mkdir -p /run/php/;
 
 php-fpm7.4 -F
