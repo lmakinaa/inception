@@ -1,14 +1,10 @@
 USER=ijaija
 
 up:
-	mkdir -p /home/$(USER)/data/wp
-	mkdir -p /home/$(USER)/data/db
 	cd ./srcs && docker-compose up -d
 
 
 up-attached:
-	mkdir -p /home/$(USER)/data/wp
-	mkdir -p /home/$(USER)/data/db
 	cd ./srcs && docker-compose up
 
 down:
