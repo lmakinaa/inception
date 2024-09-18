@@ -8,4 +8,4 @@ WORKDIR /node_exporter-1.8.2.linux-amd64
 
 EXPOSE 9100:9100
 
-CMD ["/node_exporter-1.8.2.linux-amd64/node_exporter", "--path.rootfs=/host", "--no-collector.netdev"]
+CMD ["/node_exporter-1.8.2.linux-amd64/node_exporter", "--path.rootfs=/host"]
