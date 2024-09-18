@@ -146,11 +146,15 @@ services:
 
 volumes:
   wordpress:
+    name: wordpress
+    driver: local
     driver_opts:
       o: bind
       type: none
       device: /home/ijaija/data/wp
   mariadb:
+    name: mariadb
+    driver: local
     driver_opts:
       o: bind
       type: none
