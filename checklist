@@ -1,4 +1,4 @@
-- remove network_mode: host
+- remove network_mode: host in ftp promethius
 
 - tools directory
 
@@ -8,3 +8,4 @@
 
 -  You have to reboot the virtual machine. Once it has restarted, launch docker compose again. Then, verify that everything is functional, and that both WordPress and MariaDB are configured.
 
+- grafana admin user
