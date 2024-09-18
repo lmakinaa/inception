@@ -44,6 +44,7 @@ services:
     build: ./requirements/bonus/ftp
     image: ftp:v1
     ports:
+      - 21:21
       - 40000-40100:40000-40100
     volumes:
       - /home/ijaija/data/wp:/wp
