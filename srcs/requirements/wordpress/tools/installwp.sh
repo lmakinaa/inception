@@ -18,9 +18,10 @@ sed -i "s/<DB_PASS>/$DB_PASS/" /var/www/html/wp-config.php;
 ./wp-cli.phar user create $WP_USER $WP_MAIL --role=editor --user_pass=$WP_PASS --path=/var/www/html --allow-root > /dev/null 2>&1;
 
 
-chown -R www-data:www-data /var/www/html/wp-content;
-
 ./wp-cli.phar plugin install redis-cache --activate --allow-root;
+
+
+chown -R www-data:www-data /var/www/html/wp-content;
 
 mkdir -p /run/php/;
 
