@@ -39,109 +39,109 @@ services:
       - "./.env"
     restart: unless-stopped
 
-  #ftp:
-  #  container_name: ftp
-  #  build: ./requirements/bonus/ftp
-  #  image: ftp:v1
-  #  ports:
-  #    - 21:21
-  #    - 40000-40100:40000-40100
-  #  volumes:
-  #    - /home/ijaija/data/wp:/wp
-  #  env_file:
-  #    - "./.env"
-  #  depends_on:
-  #    - wordpress
-  #  restart: unless-stopped
+  ftp:
+    container_name: ftp
+    build: ./requirements/bonus/ftp
+    image: ftp:v1
+    ports:
+      - 21:21
+      - 40000-40100:40000-40100
+    volumes:
+      - /home/ijaija/data/wp:/wp
+    env_file:
+      - "./.env"
+    depends_on:
+      - wordpress
+    restart: unless-stopped
 
-  #redis:
-  #  container_name: redis
-  #  build: ./requirements/bonus/redis
-  #  image: redis:v1
-  #  depends_on:
-  #    - wordpress
-  #  networks:
-  #    - 42-inception
-  #  restart: unless-stopped
+  redis:
+    container_name: redis
+    build: ./requirements/bonus/redis
+    image: redis:v1
+    depends_on:
+      - wordpress
+    networks:
+      - 42-inception
+    restart: unless-stopped
   
-  #adminer:
-  #  container_name: adminer
-  #  build: ./requirements/bonus/adminer
-  #  image: adminer:v1
-  #  depends_on:
-  #    - mariadb
-  #  networks:
-  #    - 42-inception
-  #  ports:
-  #    - 8000:8000
-  #  restart: unless-stopped
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer
+    image: adminer:v1
+    depends_on:
+      - mariadb
+    networks:
+      - 42-inception
+    ports:
+      - 8000:8000
+    restart: unless-stopped
 
-  #prometheus:
-  #  container_name: prom
-  #  build: ./requirements/bonus/prometheus
-  #  image: prometheus:v1
-  #  depends_on:
-  #    - node-exporter
-  #  extra_hosts:
-  #    - "host-machine:host-gateway"
-  #  networks:
-  #    - 42-inception
-  #  #ports:
-  #  #  - 9090:9090
-  #  restart: unless-stopped
+  prometheus:
+    container_name: prom
+    build: ./requirements/bonus/prometheus
+    image: prometheus:v1
+    depends_on:
+      - node-exporter
+    extra_hosts:
+      - "host-machine:host-gateway"
+    networks:
+      - 42-inception
+    #ports:
+    #  - 9090:9090
+    restart: unless-stopped
 
-  #node-exporter:
-  #  container_name: node-exporter
-  #  build: ./requirements/bonus/node-exporter
-  #  image: node-exporter:v1
-  #  networks:
-  #    - 42-inception
-  #  ports:
-  #    - 9100:9100
-  #  pid: host
-  #  volumes:
-  #    - /:/host:ro,rslave
-  #  restart: unless-stopped
+  node-exporter:
+    container_name: node-exporter
+    build: ./requirements/bonus/node-exporter
+    image: node-exporter:v1
+    networks:
+      - 42-inception
+    ports:
+      - 9100:9100
+    pid: host
+    volumes:
+      - /:/host:ro,rslave
+    restart: unless-stopped
 
-  #grafana:
-  #  container_name: grafana
-  #  build: ./requirements/bonus/grafana
-  #  image: grafana:v1
-  #  depends_on:
-  #    - prometheus
-  #  networks:
-  #    - 42-inception
-  #  ports:
-  #    - 3000:3000
-  #  restart: unless-stopped
+  grafana:
+    container_name: grafana
+    build: ./requirements/bonus/grafana
+    image: grafana:v1
+    depends_on:
+      - prometheus
+    networks:
+      - 42-inception
+    ports:
+      - 3000:3000
+    restart: unless-stopped
 
-  #backups-manager-backend:
-  #  container_name: backups-manager-backend
-  #  build: ./requirements/bonus/backups-manager/backend
-  #  image: backups-manager-backend:v1
-  #  volumes:
-  #    - /home/ijaija/data/:/volumes
-  #  env_file:
-  #    - "./.env"
-  #  ports:
-  #    - 5000:5000
-  #  networks:
-  #    - 42-inception
-  #  restart: unless-stopped
+  backups-manager-backend:
+    container_name: backups-manager-backend
+    build: ./requirements/bonus/backups-manager/backend
+    image: backups-manager-backend:v1
+    volumes:
+      - /home/ijaija/data/:/volumes
+    env_file:
+      - "./.env"
+    ports:
+      - 5000:5000
+    networks:
+      - 42-inception
+    restart: unless-stopped
 
-  #backups-manager-frontend:
-  #  container_name: backups-manager-frontend
-  #  build: ./requirements/bonus/backups-manager/client
-  #  image: backups-manager-frontend:v1
-  #  depends_on:
-  #    - backups-manager-backend
-  #  ports:
-  #    - 3300:3300
-  #  env_file:
-  #    - "./.env"
-  #  networks:
-  #    - 42-inception
-  #  restart: unless-stopped
+  backups-manager-frontend:
+    container_name: backups-manager-frontend
+    build: ./requirements/bonus/backups-manager/client
+    image: backups-manager-frontend:v1
+    depends_on:
+      - backups-manager-backend
+    ports:
+      - 3300:3300
+    env_file:
+      - "./.env"
+    networks:
+      - 42-inception
+    restart: unless-stopped
 
 
 volumes:
