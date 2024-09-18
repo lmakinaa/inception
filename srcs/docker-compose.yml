@@ -39,20 +39,22 @@ services:
       - "./.env"
     restart: unless-stopped
 
-  #ftp:
-  #  container_name: ftp
-  #  build: ./requirements/bonus/ftp
-  #  image: ftp:v1
-  #  ports:
-  #    - 21:21
-  #    - 40000-40100:40000-40100
-  #  volumes:
-  #    - /home/ijaija/data/wp:/wp
-  #  env_file:
-  #    - "./.env"
-  #  depends_on:
-  #    - wordpress
-  #  restart: unless-stopped
+  ftp:
+    container_name: ftp
+    build: ./requirements/bonus/ftp
+    image: ftp:v1
+    networks:
+      - 42-inception
+    ports:
+      - 21:21
+      - 40000-40100:40000-40100
+    volumes:
+      - /home/ijaija/data/wp:/wp
+    env_file:
+      - "./.env"
+    depends_on:
+      - wordpress
+    restart: unless-stopped
 
   redis:
     container_name: redis
