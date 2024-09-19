@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt update && apt install -y wget adduser libfontconfig1 musl vim bash
+RUN apt update && apt install -y wget adduser libfontconfig1 musl
 
 RUN wget https://dl.grafana.com/enterprise/release/grafana-enterprise-11.2.0.linux-amd64.tar.gz -O /grafana.tar.gz && tar xf /grafana.tar.gz
 

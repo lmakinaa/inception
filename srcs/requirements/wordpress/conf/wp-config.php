@@ -64,6 +64,7 @@ define( 'WP_REDIS_HOST', 'redis');
 define( 'WP_REDIS_PORT', 6379);
 define( 'WP_REDIS_DATABASE', 0 );
 
+/** The 'direct' method allows WordPress to directly handle file operations without needing FTP or SSH credentials. */
 define( 'FS_METHOD', 'direct');
 
 /**#@-*/

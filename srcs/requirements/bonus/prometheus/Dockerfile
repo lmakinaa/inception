@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt update && apt install -y wget vim
+RUN apt update && apt install -y wget
 
 RUN wget https://github.com/prometheus/prometheus/releases/download/v2.54.1/prometheus-2.54.1.linux-amd64.tar.gz -O /prom.tar.gz && tar xf /prom.tar.gz
 
