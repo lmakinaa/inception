@@ -2,7 +2,8 @@
 
 cd /var/www/html;
 
-if [ -f "./wp-cli.phar" ]; then
+if [ -f "./wp-cli.phar" ]
+then
     php-fpm7.4 -F
     exit 0
 fi
