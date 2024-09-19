@@ -14,4 +14,6 @@ COPY conf/prometheus-dashboard.yml /grafana-v11.2.0/conf/provisioning/dashboards
 
 EXPOSE 3000:3000
 
+RUN sed -i "s/admin_user = admin/admin_user = ismail/" conf/defaults.ini && sed -i "s/admin_password = admin/admin_password = ismail123/" conf/defaults.ini
+
 CMD ["/bin/sh", "-c", "/grafana-v11.2.0/bin/grafana server > /dev/null"]
