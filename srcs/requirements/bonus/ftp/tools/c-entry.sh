@@ -12,7 +12,6 @@ pasv_enable=YES
 chroot_local_user=YES
 pasv_min_port=40000
 pasv_max_port=40100
-pam_service_name=ftp
 allow_writeable_chroot=YES
 " >> /etc/vsftpd.conf;
 
