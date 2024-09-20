@@ -11,7 +11,7 @@ down:
 	cd ./srcs && docker-compose down
 
 clean:
-	cd ./srcs && docker-compose down --rmi 'all'
+	cd ./srcs && docker-compose down --rmi all
 	rm -rf /home/$(USER)/data
 
 re: clean up
