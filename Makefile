@@ -1,11 +1,10 @@
 USER=ijaija
 
-up:
-	cd ./srcs && docker-compose up -d
-
-
 up-attached:
 	cd ./srcs && docker-compose up
+
+up:
+	cd ./srcs && docker-compose up -d
 
 down:
 	cd ./srcs && docker-compose down
