@@ -46,6 +46,7 @@ services:
     networks:
       - 42-inception
     ports:
+      - 20:20
       - 21:21
       - 40000-40100:40000-40100
     volumes:
