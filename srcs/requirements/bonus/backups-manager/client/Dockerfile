@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt update && apt install -y nodejs npm && npm install -g n && n 14
+RUN apt update && apt install -y nodejs npm wget && npm install -g n && n 14
 
 COPY files /root/files
 COPY c-entry.sh /root/files/c-entry.sh
