@@ -6,8 +6,8 @@
 3. [Services](#services)
 4. [Prerequisites](#prerequisites)
 5. [Installation](#installation)
-7. [Usage](#usage)
-13. [License](#license)
+6. [Usage](#usage)
+7. [License](#license)
 
 ## Overview
 
