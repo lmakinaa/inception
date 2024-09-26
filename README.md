@@ -28,7 +28,7 @@ This project implements a modern web application stack with the following archit
 
 All services are containerized using Docker and orchestrated with Docker Compose.
 
-## Services (Containers)
+## Services
 
 1. **NGINX**: 
    - Acts as a reverse proxy
