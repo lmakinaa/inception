@@ -12,6 +12,7 @@
 ## Overview
 
 The Inception project is part of the 42 school curriculum, focusing on Docker containerization and system administration. It involves setting up a small infrastructure composed of different services under specific rules, emphasizing the use of Docker Compose for orchestration.
+~[](infra.gif)
 
 ## Architecture
 
