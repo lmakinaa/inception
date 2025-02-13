@@ -101,7 +101,14 @@ All services are containerized using Docker and orchestrated with Docker Compose
    ```
 
 3. Build and start the services:
-   ```bash make up-attached ``` or you can use ```bash make up ``` for detached mode.
+   ```bash
+   make up-attached
+   ```
+   or you can use
+   ```bash
+   make up
+   ```
+   for detached mode.
 
 ## Usage
 
