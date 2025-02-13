@@ -96,7 +96,7 @@ All services are containerized using Docker and orchestrated with Docker Compose
 
 2. Set up environment variables:
    ```bash
-   cp src/.env.example src/.env
+   cp srcs/.env.example srcs/.env
    nano src/.env  # Edit variables as needed
    ```
 
